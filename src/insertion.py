@@ -1,7 +1,7 @@
 from sort import Sort
 
 
-class Insertion(Sort):
+class InsertionSort(Sort):
     @classmethod
     def sort(cls, arr):
         for i in range(1, len(arr)):
@@ -15,4 +15,4 @@ class Insertion(Sort):
 
 
 if __name__ == '__main__':
-    Insertion.main()
+    InsertionSort.main()

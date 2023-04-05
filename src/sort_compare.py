@@ -5,12 +5,14 @@ from typing import List
 
 from insertion import InsertionSort
 from selection import SelectionSort
+from shell import ShellSort
 
 
 class SortClassFactory:
     sort_classes = {
         'insertion': InsertionSort,
-        'selection': SelectionSort
+        'selection': SelectionSort,
+        'shell': ShellSort
     }
 
     @classmethod

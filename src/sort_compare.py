@@ -6,13 +6,15 @@ from typing import List
 from insertion import InsertionSort
 from selection import SelectionSort
 from shell import ShellSort
+from merge import MergeSort
 
 
 class SortClassFactory:
     sort_classes = {
         'insertion': InsertionSort,
         'selection': SelectionSort,
-        'shell': ShellSort
+        'shell': ShellSort,
+        'merge': MergeSort
     }
 
     @classmethod

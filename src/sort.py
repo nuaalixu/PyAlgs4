@@ -6,7 +6,7 @@ from typing import List
 class Sort(abc.ABC):
     @classmethod
     @abc.abstractmethod
-    def sort(cls, arr: List):
+    def sort(cls, arr: List) -> List:
         ...
 
     @classmethod

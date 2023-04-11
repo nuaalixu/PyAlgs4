@@ -7,6 +7,7 @@ from insertion import InsertionSort
 from selection import SelectionSort
 from shell import ShellSort
 from merge import MergeSort
+from quick import QuickSort
 
 
 class SortClassFactory:
@@ -14,7 +15,8 @@ class SortClassFactory:
         'insertion': InsertionSort,
         'selection': SelectionSort,
         'shell': ShellSort,
-        'merge': MergeSort
+        'merge': MergeSort,
+        'quick': QuickSort
     }
 
     @classmethod

@@ -24,8 +24,8 @@ class SortClassFactory:
         try:
             sort_class = cls.sort_classes[name]
             return sort_class
-        except KeyError:
-            raise ValueError(f'class {name} is not supported')
+        except KeyError as exc:
+            raise ValueError(f'class {name} is not supported') from exc
 
 
 class SortCompare:
@@ -51,8 +51,8 @@ class SortCompare:
             alg2 = sys.argv[2]
             count = int(sys.argv[3])
             length = int(sys.argv[4])
-        except IndexError:
-            raise ValueError('Usage: this.py <alg1> <alg2> <test-count> <array-length>')
+        except IndexError as exc:
+            raise ValueError('Usage: this.py <alg1> <alg2> <test-count> <array-length>') from exc
 
         t1 = cls.time_random_input(alg1, count, length)
         t2 = cls.time_random_input(alg2, count, length)

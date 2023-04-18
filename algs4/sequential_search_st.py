@@ -1,5 +1,5 @@
 import sys
-from typing import Any, Iterator
+from typing import Any, Generator
 
 
 class Node:
@@ -68,7 +68,7 @@ class SequentialSearchST:
             last = x
             x = x.next
 
-    def keys(self) -> Iterator:
+    def keys(self) -> Generator:
         x = self.first
         while x:
             yield x.key

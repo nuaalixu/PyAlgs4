@@ -14,8 +14,7 @@ class Sort(abc.ABC):
         for i in range(len(arr) - 1):
             if arr[i] > arr[i+1]:
                 return False
-        else:
-              return True
+        return True
     
     @classmethod
     def show(cls, arr: List):

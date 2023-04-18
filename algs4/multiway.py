@@ -1,7 +1,7 @@
 import sys
 from collections import deque
 
-from index_min_pq import IndexMinPQ
+from algs4.index_min_pq import IndexMinPQ
 
 
 class Multiway:

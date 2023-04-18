@@ -1,6 +1,6 @@
 import random
 
-from sort import Sort
+from algs4.sort import Sort
 
 
 class QuickSort(Sort):

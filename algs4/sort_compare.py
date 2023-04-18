@@ -3,11 +3,11 @@ import time
 import random
 from typing import List
 
-from insertion import InsertionSort
-from selection import SelectionSort
-from shell import ShellSort
-from merge import MergeSort
-from quick import QuickSort
+from algs4.insertion import InsertionSort
+from algs4.selection import SelectionSort
+from algs4.shell import ShellSort
+from algs4.merge import MergeSort
+from algs4.quick import QuickSort
 
 
 class SortClassFactory:

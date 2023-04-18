@@ -1,6 +1,6 @@
 from typing import List
 
-from sort import Sort
+from algs4.sort import Sort
 
 
 class MergeSort(Sort):

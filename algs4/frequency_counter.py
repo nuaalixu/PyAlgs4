@@ -1,11 +1,13 @@
 import sys
 
 from algs4.sequential_search_st import SequentialSearchST
+from algs4.binary_serach_st import BinarySerachST
 
 
 class STClassFactory:
     st_classes = {
-        'sequential': SequentialSearchST
+        'sequential': SequentialSearchST,
+        'binary': BinarySerachST
     }
 
     @classmethod
@@ -52,6 +54,10 @@ class FrequencyCounter:
 
 if __name__ == '__main__':
     min_len = int(sys.argv[1])
-    st = STClassFactory.create_class('sequential')()
+    try:
+        st_cls = sys.argv[2].lower()
+    except IndexError as exc:
+        st_cls = 'sequential'
+    st = STClassFactory.create_class(st_cls)()
     fc = FrequencyCounter(st, min_len)
     fc.main()

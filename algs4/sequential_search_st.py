@@ -6,6 +6,7 @@ from algs4.st import Node, ST, STKeyIterator
 class SequentialSearchST(ST):
 
     def __init__(self):
+        super().__init__()
         self.n = 0
         self.first: Node = None
 

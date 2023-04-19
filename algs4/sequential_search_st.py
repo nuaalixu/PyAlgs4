@@ -1,16 +1,9 @@
 import sys
-from typing import Any, Generator
+
+from algs4.st import Node, ST, STKeyIterator
 
 
-class Node:
-
-    def __init__(self, key, val, next):
-        self.key = key
-        self.val = val
-        self.next = next
-
-
-class SequentialSearchST:
+class SequentialSearchST(ST):
 
     def __init__(self):
         self.n = 0
@@ -27,7 +20,7 @@ class SequentialSearchST:
             raise ValueError('argument to contains() is None')
         return self.get(key) is not None
 
-    def get(self, key) -> Any:
+    def get(self, key):
         if key is None:
             raise ValueError('argument to get() is None')
         x = self.first
@@ -40,9 +33,6 @@ class SequentialSearchST:
     def put(self, key, val):
         if key is None:
             raise ValueError('argument to put() is None')
-        if val is None:
-            self.delete(key)
-            return
         x = self.first
         while x:
             if key == x.key:
@@ -68,11 +58,8 @@ class SequentialSearchST:
             last = x
             x = x.next
 
-    def keys(self) -> Generator:
-        x = self.first
-        while x:
-            yield x.key
-            x = x.next
+    def keys(self):
+        return STKeyIterator(self.first)
 
 
 if __name__ == '__main__':

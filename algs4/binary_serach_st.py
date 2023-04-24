@@ -79,14 +79,17 @@ class BinarySerachST(ST):
 
     def ceiling(self, key):
         i = self.rank(key)
+        if i == len(self._keys):
+            raise ValueError('argument to ceiling() is too large')  
         return self._keys[i]
-    
+        
     def floor(self, key):
         i = self.rank(key)
-        if self._keys[i] == key:
+        if i < len(self._keys) and self._keys[i] == key:
             return key
-        else:
-            return self._keys[i - 1]
+        if i == 0:
+            raise ValueError('argument to floor() is too small')
+        return self._keys[i - 1]
         
     def del_min(self):
         self._keys.pop(0)

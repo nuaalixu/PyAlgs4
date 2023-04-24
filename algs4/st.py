@@ -51,8 +51,6 @@ class STKeyIterator:
     def __next__(self):
         if self.cur is None:
             raise StopIteration()
-        else:
-            key = self.cur.key
-            self.cur = self.cur.next
-            return key
-        
+        key = self.cur.key
+        self.cur = self.cur.next
+        return key

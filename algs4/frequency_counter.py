@@ -2,12 +2,14 @@ import sys
 
 from algs4.sequential_search_st import SequentialSearchST
 from algs4.binary_serach_st import BinarySerachST
+from algs4.bst import BST
 
 
 class STClassFactory:
     st_classes = {
         'sequential': SequentialSearchST,
-        'binary': BinarySerachST
+        'binary': BinarySerachST,
+        'bst': BST
     }
 
     @classmethod

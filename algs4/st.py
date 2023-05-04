@@ -14,18 +14,28 @@ class ST(ABC):
     
     @abstractmethod
     def put(self, key, val) -> None:
-        ...
+        if key is None:
+            raise ValueError('argument to put() is None')
+        if val is None:
+            self.delete(key)
+            return
 
     @abstractmethod
     def get(self, key) -> Any:
-        ...
+        if key is None:
+            raise ValueError('argument to get() is None')
 
+    @abstractmethod
     def delete(self, key) -> None:
-        self.put(key, None)
+        if key is None:
+            raise ValueError('argument to delete() is None')
+        if not self.contains(key):
+            return
 
     @abstractmethod
     def contains(self, key) -> bool:
-        ...
+        if key is None:
+            raise ValueError('argument to contains() is None')
 
     @abstractmethod
     def is_empty(self) -> bool:

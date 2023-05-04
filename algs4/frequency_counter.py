@@ -28,14 +28,16 @@ from algs4.sequential_search_st import SequentialSearchST
 from algs4.binary_serach_st import BinarySerachST
 from algs4.bst import BST
 from algs4.separate_chaining_hash_st import SeparateChaningHashST
+from algs4.linear_probing_hash_st import LinearProbingHashST
 
 
 class STClassFactory:
     st_classes = {
         'sequential': SequentialSearchST,
         'binary': BinarySerachST,
-        'bst': BST,
-        'hash': SeparateChaningHashST
+        'bs_tree': BST,
+        'sc_hash': SeparateChaningHashST,
+        'lp_hash': LinearProbingHashST
     }
 
     @classmethod

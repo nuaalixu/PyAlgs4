@@ -1,15 +1,41 @@
+"""
+    Execution:
+        python -m algs4.frequency_counter L ST < input.txt
+    Data files:   
+        https://algs4.cs.princeton.edu/31elementary/tnyTale.txt
+        https://algs4.cs.princeton.edu/31elementary/tale.txt
+        https://algs4.cs.princeton.edu/31elementary/leipzig100K.txt
+        https://algs4.cs.princeton.edu/31elementary/leipzig300K.txt
+        https://algs4.cs.princeton.edu/31elementary/leipzig1M.txt
+
+    Read in a list of words from standard input and print out
+    the most frequently occurring word that has length greater than
+    a given threshold.
+
+    % python -m algs4.frequency_counter 1 < data/tinyTale.txt
+    it 10
+  
+    % python -m algs4.frequency_counter 8 < data/tale.txt
+    business 122
+  
+    % python -m algs4.frequency_counter 10 < data/leipzig1M.txt
+    government 24763
+"""
+
 import sys
 
 from algs4.sequential_search_st import SequentialSearchST
 from algs4.binary_serach_st import BinarySerachST
 from algs4.bst import BST
+from algs4.separate_chaining_hash_st import SeparateChaningHashST
 
 
 class STClassFactory:
     st_classes = {
         'sequential': SequentialSearchST,
         'binary': BinarySerachST,
-        'bst': BST
+        'bst': BST,
+        'hash': SeparateChaningHashST
     }
 
     @classmethod

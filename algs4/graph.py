@@ -8,7 +8,7 @@
    A graph, implemented using an array of sets.
    Parallel edges and self-loops allowed.
  
-   % python -m algs4.graph < data/tinyG.txt
+   % python -m algs4.graph data/tinyG.txt
    13 vertices, 13 edges 
    0: 6 2 1 5 
    1: 0 
@@ -33,18 +33,30 @@
  """
 
 import sys
+from io import TextIOBase
 
 from algs4.link_list import Bag
 
 
 class Graph:
 
-    def __init__(self, V):
-        if V < 0:
-            raise ValueError('Number of vertices must be non-negative')
-        self._V = V
-        self._E = 0
-        self._adj = [Bag() for _ in range(self._V)]
+    def __init__(self, x):
+        if isinstance(x, int):
+            if x < 0:
+                raise ValueError('Number of vertices must be non-negative')
+            self._V = x
+            self._E = 0
+            self._adj = [Bag() for _ in range(self._V)]
+        elif isinstance(x, TextIOBase):
+            self._V = int(x.readline())
+            self._E = 0
+            E = int(x.readline())
+            if E < 0:
+                raise ValueError('number of edges in a Graph must be non-negative')
+            self._adj = [Bag() for _ in range(self._V)]
+            for i in range(E):
+                v, w = x.readline().split()
+                self.add_edge(v, w)
 
     def V(self):
         return self._V
@@ -78,10 +90,6 @@ class Graph:
     
 
 if __name__ == '__main__':
-    V = int(sys.stdin.readline())
-    E = int(sys.stdin.readline())
-    g = Graph(V)
-    for i in range(E):
-        v, w = sys.stdin.readline().split()
-        g.add_edge(v, w)
+    with open(sys.argv[1], encoding='utf8') as f:
+        g = Graph(f)
     print(g)

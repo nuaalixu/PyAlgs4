@@ -34,7 +34,7 @@
 
 import sys
 
-from algs4.bag import Bag
+from algs4.link_list import Bag
 
 
 class Graph:

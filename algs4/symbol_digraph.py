@@ -6,7 +6,7 @@
                  https://algs4.cs.princeton.edu/41graph/moviesG.txt
                  https://algs4.cs.princeton.edu/41graph/moviestopGrossing.txt
 
-   %  python -m algs4.symbol_graph data/routes.txt " "
+   %  python -m algs4.symbol_digraph data/routes.txt " "
    JFK
       MCO
       ATL
@@ -15,7 +15,7 @@
       PHX
       LAS
 
-   % python -m algs4.symbol_graph data/movies.txt "/"
+   % python -m algs4.symbol_digraph data/movies.txt "/"
    Tin Men (1987)
       Hershey, Barbara
       Geppi, Cindy
@@ -43,10 +43,10 @@ import sys
 from io import TextIOBase
 from collections import OrderedDict
 
-from algs4.graph import Graph
+from algs4.digraph import Digraph
 
 
-class SymbolGraph:
+class SymbolDigraph:
 
     def __init__(self, file_obj: TextIOBase, delim: str):
         self.st = OrderedDict()
@@ -55,7 +55,7 @@ class SymbolGraph:
                 if key not in self.st:
                     self.st[key] = len(self.st)
         self.keys = list(self.st.keys())
-        self.g = Graph(len(self.keys))
+        self.g = Digraph(len(self.keys))
         file_obj.seek(0, 0)
         for line in file_obj:
             a = line.rstrip().split(delim)
@@ -72,14 +72,14 @@ class SymbolGraph:
     def name(self, v: int) -> str:
         return self.keys[v]
 
-    def G(self) -> Graph:
+    def G(self) -> Digraph:
         return self.g
     
 
 if __name__ == "__main__":
     filename, delimiter = sys.argv[1], sys.argv[2]
     with open(filename, encoding='utf8') as f:
-        sg = SymbolGraph(f, delimiter)
+        sg = SymbolDigraph(f, delimiter)
     graph = sg.G()
 
     for line in sys.stdin:

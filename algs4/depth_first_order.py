@@ -15,13 +15,13 @@
 
 import sys
 
-from algs4.diagraph import Diagraph
+from algs4.digraph import Digraph
 from algs4.link_list import Queue, Stack
 
 
 class DepthFirstOrder:
 
-    def __init__(self, G: Diagraph):
+    def __init__(self, G: Digraph):
         self.marked = [False] * G.V()
         self.pre = Queue()
         self.post = Queue()
@@ -30,7 +30,7 @@ class DepthFirstOrder:
             if not self.marked[v]:
                 self.dfs(G, v)
     
-    def dfs(self, G: Diagraph, v: int):
+    def dfs(self, G: Digraph, v: int):
         self.pre.enqueue(v)
         self.marked[v] = True
         for w in G.adj(v):
@@ -42,7 +42,7 @@ class DepthFirstOrder:
 
 if __name__ == '__main__':
     with open(sys.argv[1], encoding='utf8') as f:
-        g = Diagraph(f)
+        g = Digraph(f)
     bfs = DepthFirstOrder(g)
     print("Preorder:", bfs.pre)
     print("Postorder:", bfs.post)

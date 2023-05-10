@@ -6,7 +6,7 @@
   Finds a directed cycle in a digraph.
   Runs in O(E + V) time.
 
-  % python -m directed_cycle data/tinyDG.txt
+  % python -m algs4.directed_cycle data/tinyDG.txt
   Directed cycle: 3 5 4 3
 
   %  python -m algs4.directed_cycle data/tinyDAG.txt
@@ -15,13 +15,13 @@
 
 import sys
 
-from algs4.diagraph import Diagraph
+from algs4.digraph import Digraph
 from algs4.link_list import Stack
 
 
 class DirectedCycle:
 
-    def __init__(self, G: Diagraph):
+    def __init__(self, G: Digraph):
         self.marked = [False] * G.V()
         self.edge_to = [None] * G.V()
         self.on_stack = [False] * G.V()
@@ -30,7 +30,7 @@ class DirectedCycle:
             if not self.marked[v]:
                 self.dfs(G, v)
 
-    def dfs(self, G: Diagraph, v: int):
+    def dfs(self, G: Digraph, v: int):
         self.on_stack[v] = True
         self.marked[v] = True
         for w in G.adj(v):
@@ -59,7 +59,7 @@ class DirectedCycle:
 
 if __name__ == '__main__':
     with open(sys.argv[1], encoding='utf8') as f:
-        g = Diagraph(f)
+        g = Digraph(f)
     finder = DirectedCycle(g)
     if finder.has_cycle():
         print("Directed cycle:", " ".join(str(v) for v in finder.cycle()))    

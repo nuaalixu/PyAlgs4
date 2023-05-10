@@ -8,7 +8,7 @@
    A graph, implemented using an array of sets.
    Parallel edges and self-loops are permitted.
  
-   % python -m algs4.diagraph data/tinyDG.txt
+   % python -m algs4.digraph data/tinyDG.txt
    13 vertices, 22 edges
    0: 5 1 
    1: 
@@ -33,7 +33,7 @@ from typing import Union
 from algs4.link_list import Bag
 
 
-class Diagraph:
+class Digraph:
 
     def __init__(self, x: Union[int, TextIOBase]):
         if isinstance(x, int):
@@ -93,5 +93,5 @@ class Diagraph:
 
 if __name__ == '__main__':
     with open(sys.argv[1], encoding='utf8') as f:
-        g = Diagraph(f)
+        g = Digraph(f)
     print(g)

@@ -71,7 +71,7 @@ class Digraph:
         return self._adj[v]
 
     def reverse(self):
-        reverse_g = Diagraph(self._V)
+        reverse_g = Digraph(self._V)
         for v in range(self._V):
             for w in self._adj[v]:
                 reverse_g.add_edge(w, v)

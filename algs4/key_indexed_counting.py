@@ -11,18 +11,17 @@ class Node:
     def __str__(self):
         return f'{self.val}\t{self.key}'
 
-class KeyIndexedCounting:
-    
-    def __init__(self, R):
-        self.R = R
+class KeyIndexedCounting(Sort):
+    R = 256
 
-    def sort(self, arr: List[Node]) -> List:
-        count = [0] * (self.R + 1)
+    @classmethod
+    def sort(cls, arr: List[Node]) -> List:
+        count = [0] * (cls.R + 1)
         aux = [None] * len(arr)
         for node in arr:
             count[node.key + 1] += 1
         
-        for i in range(self.R):
+        for i in range(cls.R):
             count[i + 1] += count[i]
 
         for node in arr:
@@ -30,8 +29,8 @@ class KeyIndexedCounting:
             count[node.key] += 1
         
         # demonstrate intentionally.
-        for i in range(len(arr)):
-            arr[i] = aux[i]
+        for i, node in enumerate(aux, 0):
+            arr[i] = node
         
         return arr
 
@@ -45,9 +44,9 @@ if __name__ == '__main__':
         Node(1, 'Harris'),
         Node(3, 'Jackson')
     ]
-    kic = KeyIndexedCounting(5)
+    
     print("name\tgroup")
     print('\n'.join(str(node) for node in arr))
-    arr = kic.sort(arr)
+    arr = KeyIndexedCounting.sort(arr)
     print("name\tgroup")
     print('\n'.join(str(node) for node in arr))

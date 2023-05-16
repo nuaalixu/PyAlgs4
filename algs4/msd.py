@@ -53,7 +53,7 @@ class MSD:
     
     @classmethod
     def less(cls, v: str, w: str, d: int):
-        for i in range(min(len(v), len(w))):
+        for i in range(d, min(len(v), len(w))):
             if v[i] > w[i]:
                 return False
             if v[i] < w[i]:

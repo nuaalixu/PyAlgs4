@@ -1,5 +1,4 @@
 from typing import List
-from algs4.sort import Sort
 
 
 class Node:
@@ -11,7 +10,7 @@ class Node:
     def __str__(self):
         return f'{self.val}\t{self.key}'
 
-class KeyIndexedCounting(Sort):
+class KeyIndexedCounting:
     R = 256
 
     @classmethod

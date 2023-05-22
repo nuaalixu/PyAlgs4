@@ -1,20 +1,29 @@
 """
- Execution:    python trie_st.py < words.txt
- Dependencies: StdIn.java
- Data files:   https://algs4.cs.princeton.edu/52trie/shellsST.txt
+Execution:    python trie_st.py < words.txt
+Dependencies: StdIn.java
+Data files:   https://algs4.cs.princeton.edu/52trie/shellsST.txt
  
- A string symbol table for extended ASCII strings, implemented
- using a 256-way trie.
+A string symbol table for extended ASCII strings, implemented
+using a 256-way trie.
  
- % python -m algs4.trie_st < data/shellsST.txt 
- by 4
- sea 6
- sells 1
- she 0
- shells 3
- shore 7
- the 5
+% python -m algs4.trie_st < data/shellsST.txt 
+by 4
+sea 6
+sells 1
+she 0
+shells 3
+shore 7
+the 5
  
+longestPrefixOf("shellsort"): 
+shells 
+ 
+keysWithPrefix("shor"): 
+shore 
+ 
+keysThatMatch(".he.l."): 
+shells
+
 """
 
 from typing import Any, Optional
@@ -162,6 +171,6 @@ if __name__ == "__main__":
         print(s)
     print()
 
-    print("keysThatMatch(\".he.l.\"):")
+    print('keysThatMatch(".he.l."):')
     for s in st.keys_that_match(".he.l."):
         print(s)

@@ -20,12 +20,14 @@
 
 import sys
 
+from typing import Tuple
+
 from algs4.digraph import Digraph
 
 
 class DirectedDFS:
 
-    def __init__(self, graph: Digraph, sources):
+    def __init__(self, graph: Digraph, sources: Tuple):
         self._marked = [False] * graph.V()
         for s in sources:
             s = int(s)

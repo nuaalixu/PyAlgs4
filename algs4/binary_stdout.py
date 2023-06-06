@@ -20,6 +20,16 @@ class BinaryStdout:
         cls.write_byte(x & 0xff)
 
     @classmethod
+    def write_bits(cls, x, r):
+        if r < 1 or r > 32:
+            raise Exception('invalid r')
+        if r == 32:
+            return cls.write_int(x)
+        for i in range(r):
+            bit = ((x >> (r - i - 1)) & 1)
+            cls.write_bit(bit)
+
+    @classmethod
     def write_bit(cls, bit):
         cls.buffer <<= 1
         if bit:
@@ -27,6 +37,12 @@ class BinaryStdout:
         cls.n += 1
         if cls.n == 8:
             cls.clear_buffer()
+    
+    @classmethod
+    def write_str(cls, s):
+        """writes the string of 8-bit characters to standard output."""
+        for c in s:
+            cls.write_byte(ord(c))
 
     @classmethod
     def clear_buffer(cls):
